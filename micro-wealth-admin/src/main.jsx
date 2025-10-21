@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 const Login = lazy(()=>import('./pages/Login.jsx'))
 const Overview = lazy(()=>import('./pages/Overview.jsx'))
+const Providers = lazy(()=>import('./pages/Providers.jsx'))   // NEW
 const Offers = lazy(()=>import('./pages/Offers.jsx'))
 const Users = lazy(()=>import('./pages/Users.jsx'))
 const Settings = lazy(()=>import('./pages/Settings.jsx'))
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoute><Overview /></ProtectedRoute>} />
+            <Route path="/providers" element={<ProtectedRoute><Providers /></ProtectedRoute>} /> {/* NEW */}
             <Route path="/offers" element={<ProtectedRoute><Offers /></ProtectedRoute>} />
             <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />

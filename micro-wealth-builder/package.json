@@ -2,7 +2,7 @@
 {
   "name": "micro-wealth-builder",
   "private": true,
-  "version": "2.1.0",
+  "version": "2.1.2",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow npm",

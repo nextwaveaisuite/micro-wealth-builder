@@ -7,8 +7,6 @@ const menu = [
   { to: '/planner', label: 'Planner' },
   { to: '/calculator', label: 'Calculator' },
   { to: '/learn', label: 'Learn' },
-  // We’re not changing the global nav everywhere to minimize risk.
-  // Users will reach Execute from Overview (button) or direct URL.
 ]
 
 const providers = [

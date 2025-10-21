@@ -11,7 +11,7 @@ const Portfolio = lazy(()=>import('./pages/Portfolio.jsx'))
 const Planner = lazy(()=>import('./pages/Planner.jsx'))
 const Calculator = lazy(()=>import('./pages/Calculator.jsx'))
 const Learn = lazy(()=>import('./pages/Learn.jsx'))
-const Execute = lazy(()=>import('./pages/Execute.jsx'))   // ← NEW
+const Execute = lazy(()=>import('./pages/Execute.jsx'))
 const NotFound = lazy(()=>import('./pages/NotFound.jsx'))
 
 createRoot(document.getElementById('root')).render(
@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/planner" element={<ProtectedRoute><Planner /></ProtectedRoute>} />
             <Route path="/calculator" element={<ProtectedRoute><Calculator /></ProtectedRoute>} />
             <Route path="/learn" element={<ProtectedRoute><Learn /></ProtectedRoute>} />
-            <Route path="/execute" element={<ProtectedRoute><Execute /></ProtectedRoute>} /> {/* ← NEW */}
+            <Route path="/execute" element={<ProtectedRoute><Execute /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

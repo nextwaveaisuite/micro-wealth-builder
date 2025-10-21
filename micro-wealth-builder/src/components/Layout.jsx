@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Auth } from '../lib/auth'
+import { logout } from '../lib/auth'
 
 export function Layout({ title, children, menu }) {
-  const user = Auth.user()
   return (
     <div className="container">
       <aside className="sidebar">
@@ -18,8 +17,7 @@ export function Layout({ title, children, menu }) {
         <header className="header">
           <div className="title">{title}</div>
           <div className="user">
-            <span>{user?.email ?? 'Guest'}</span>
-            {user && <button className="btn secondary" onClick={()=>{Auth.logout(); location.href='/login'}}>Logout</button>}
+            <button className="btn secondary" onClick={async()=>{ await logout(); location.href='/login' }}>Logout</button>
           </div>
         </header>
         <main className="main">{children}</main>

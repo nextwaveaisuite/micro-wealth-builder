@@ -12,6 +12,7 @@ const menu = [
   { to: '/learn', label: 'Learn' }
 ]
 
+// Helpers to build demo time series indexed to 100
 function buildMonthLabels(n = 12) {
   const arr = []
   for (let i = n - 1; i >= 0; i--) {
@@ -33,11 +34,13 @@ function seriesFrom(start = 100, stepsPct = []) {
 }
 
 export default function Overview(){
+  // Pie (allocation)
   const allocation = useMemo(() => ({
     labels: ['VAS.AX', 'VGS.AX', 'IVV.AX', 'VAF.AX', 'GOLD.AX'],
     values: [30, 20, 25, 15, 10]
   }), [])
 
+  // Growth lines (per product), 12 months, indexed to 100
   const months = useMemo(() => buildMonthLabels(12), [])
   const growth = useMemo(() => ([
     { name: 'VAS.AX',  data: seriesFrom(100, [1.2,-0.6,0.4,0.8,-0.3,1.0,0.5,0.7,-0.4,0.9,0.3,0.6]) },
@@ -50,10 +53,12 @@ export default function Overview(){
   return (
     <Layout title="Dashboard" menu={menu}>
       <div className="grid">
+        {/* KPI cards */}
         <div className="card"><div className="h2">Balance (est)</div><div className="kpi">$12,450</div><div className="small">12 months proj.</div></div>
         <div className="card"><div className="h2">Monthly Avg</div><div className="kpi">$1,038</div><div className="small">Contrib + returns</div></div>
         <div className="card"><div className="h2">Risk</div><div className="badge blue">Low/Moderate</div></div>
 
+        {/* Execute link */}
         <div className="card">
           <div className="h2">Ready to place your plan?</div>
           <div className="small">Pick your micro-investing provider to execute outside the app.</div>
@@ -63,6 +68,7 @@ export default function Overview(){
           <div className="small" style={{marginTop:8}}>We don’t hold funds or place orders.</div>
         </div>
 
+        {/* Charts */}
         <div className="card">
           <PortfolioPie labels={allocation.labels} values={allocation.values} />
         </div>
@@ -70,7 +76,7 @@ export default function Overview(){
         <div className="card" style={{ gridColumn: '1 / -1' }}>
           <GrowthLine labels={months} series={growth} />
           <div className="small" style={{marginTop:8}}>
-            Demo data, indexed to 100. Phase 2 will connect live quotes.
+            Demo data, indexed to 100.
           </div>
         </div>
       </div>

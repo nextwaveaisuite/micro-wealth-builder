@@ -1,7 +1,7 @@
 {
   "name": "micro-wealth-builder",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow npm",
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.4",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"
   },

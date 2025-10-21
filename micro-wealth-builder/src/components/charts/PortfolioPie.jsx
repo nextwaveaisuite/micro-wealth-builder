@@ -1,3 +1,4 @@
+// micro-wealth-builder/src/components/charts/PortfolioPie.jsx
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import {
@@ -17,13 +18,7 @@ export default function PortfolioPie({ labels, values }) {
       {
         label: 'Allocation (%)',
         data: values,
-        backgroundColor: [
-          '#4db5ff',   // VAS
-          '#7af0b2',   // VGS
-          '#ffd166',   // IVV
-          '#c3a6ff',   // VAF
-          '#ff6b6b'    // GOLD
-        ],
+        backgroundColor: ['#4db5ff','#7af0b2','#ffd166','#c3a6ff','#ff6b6b'],
         borderColor: 'rgba(255,255,255,0.08)',
         borderWidth: 2
       }
@@ -35,14 +30,9 @@ export default function PortfolioPie({ labels, values }) {
     maintainAspectRatio: false,
     plugins: {
       title: { display: true, text: 'Portfolio Allocation' },
-      legend: {
-        position: 'bottom',
-        labels: { color: '#9fb0d0', boxWidth: 14 }
-      },
+      legend: { position: 'bottom', labels: { color: '#9fb0d0', boxWidth: 14 } },
       tooltip: {
-        callbacks: {
-          label: (ctx) => `${ctx.label}: ${ctx.parsed}%`
-        }
+        callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}%` }
       }
     }
   }

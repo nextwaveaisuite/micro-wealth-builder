@@ -6,7 +6,7 @@ const menu = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/planner', label: 'Planner' },
   { to: '/calculator', label: 'Calculator' },
-  { to: '/learn', label: 'Learn' },
+  { to: '/learn', label: 'Learn' }
 ]
 
 const rows = [
@@ -14,12 +14,12 @@ const rows = [
   { ticker: 'GOLD.AX', change: '+11%', weight: '15%' },
   { ticker: 'VAS.AX', change: '+10%', weight: '30%' },
   { ticker: 'VGS.AX', change: '+8%',  weight: '20%' },
-  { ticker: 'VAF.AX', change: '+4%',  weight: '10%' },
+  { ticker: 'VAF.AX', change: '+4%',  weight: '10%' }
 ]
 
 const plannedBuys = [
   { ticker: 'VAS.AX', type: 'Growth', fee: '0.10%' },
-  { ticker: 'VGS.AX', type: 'Growth', fee: '0.18%' },
+  { ticker: 'VGS.AX', type: 'Growth', fee: '0.18%' }
 ]
 
 export default function Portfolio(){

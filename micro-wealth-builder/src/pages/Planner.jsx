@@ -6,7 +6,7 @@ const menu = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/planner', label: 'Planner' },
   { to: '/calculator', label: 'Calculator' },
-  { to: '/learn', label: 'Learn' },
+  { to: '/learn', label: 'Learn' }
 ]
 
 export default function Planner(){

@@ -1,7 +1,27 @@
-export const Auth = {
-  key: 'mw_token',
-  isAuthed() { return !!localStorage.getItem(this.key) },
-  login(email) { localStorage.setItem(this.key, JSON.stringify({ email, at: Date.now() })) },
-  logout() { localStorage.removeItem(this.key) },
-  user() { try { return JSON.parse(localStorage.getItem(this.key)) } catch { return null } }
+export async function getSession() {
+  try {
+    const res = await fetch('/api/session', { credentials: 'include' })
+    if (!res.ok) return null
+    return await res.json()
+  } catch {
+    return null
+  }
+}
+
+export async function login(email, password) {
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({ email, password })
+  })
+  if (!res.ok) {
+    const msg = await res.text()
+    throw new Error(msg || 'Login failed')
+  }
+  return res.json()
+}
+
+export async function logout() {
+  await fetch('/api/logout', { method: 'POST', credentials: 'include' })
 }

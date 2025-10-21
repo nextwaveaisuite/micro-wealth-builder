@@ -6,7 +6,7 @@ const menu = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/planner', label: 'Planner' },
   { to: '/calculator', label: 'Calculator' },
-  { to: '/learn', label: 'Learn' },
+  { to: '/learn', label: 'Learn' }
 ]
 
 export default function Learn(){
@@ -18,6 +18,7 @@ export default function Learn(){
           <li><a href="/portfolio">View Portfolio</a></li>
           <li><a href="/planner">Open Planner</a></li>
           <li><a href="/calculator">Compound Calculator</a></li>
+          <li><a href="/execute">Execute (Providers)</a></li>
         </ul>
       </div>
     </Layout>

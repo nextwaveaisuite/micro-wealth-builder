@@ -1,3 +1,4 @@
+// micro-wealth-builder/src/components/charts/GrowthLine.jsx
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import {
@@ -14,7 +15,6 @@ import {
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Title)
 
 export default function GrowthLine({ labels, series }) {
-  // series: [{ name: 'VAS.AX', data: [..] }, ...]
   const palette = ['#4db5ff','#7af0b2','#ffd166','#c3a6ff','#ff6b6b','#64d2ff','#ffc4e1']
 
   const data = {
@@ -35,26 +35,12 @@ export default function GrowthLine({ labels, series }) {
     maintainAspectRatio: false,
     plugins: {
       title: { display: true, text: 'Product Growth (Indexed to 100)' },
-      legend: {
-        position: 'bottom',
-        labels: { color: '#9fb0d0' }
-      },
-      tooltip: {
-        callbacks: {
-          label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}`
-        }
-      }
+      legend: { position: 'bottom', labels: { color: '#9fb0d0' } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}` } }
     },
     scales: {
-      x: {
-        ticks: { color: '#9fb0d0' },
-        grid: { color: 'rgba(255,255,255,0.04)' }
-      },
-      y: {
-        ticks: { color: '#9fb0d0' },
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        beginAtZero: false
-      }
+      x: { ticks: { color: '#9fb0d0' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { ticks: { color: '#9fb0d0' }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: false }
     }
   }
 

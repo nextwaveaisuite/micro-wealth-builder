@@ -36,7 +36,7 @@ export default function GrowthLine({ labels, series }) {
     plugins: {
       title: { display: true, text: 'Product Growth (Indexed to 100)' },
       legend: { position: 'bottom', labels: { color: '#9fb0d0' } },
-      tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}` } }
+      tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${c.parsed.y.toFixed(2)}` } }
     },
     scales: {
       x: { ticks: { color: '#9fb0d0' }, grid: { color: 'rgba(255,255,255,0.04)' } },

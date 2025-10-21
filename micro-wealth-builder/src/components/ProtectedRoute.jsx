@@ -1,21 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { Navigate } from 'react-router-dom'
-import { getSession } from '../lib/auth'
+// micro-wealth-builder/src/components/charts/PortfolioPie.jsx
+import React from 'react'
+import { Doughnut } from 'react-chartjs-2'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js'
 
-export default function ProtectedRoute({ children }) {
-  const [state, setState] = useState({ loading: true, ok: false })
+ChartJS.register(ArcElement, Tooltip, Legend, Title)
 
-  useEffect(() => {
-    let alive = true
-    ;(async () => {
-      const session = await getSession()
-      if (!alive) return
-      setState({ loading: false, ok: !!session?.ok })
-    })()
-    return () => { alive = false }
-  }, [])
+export default function PortfolioPie({ labels, values }) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Allocation (%)',
+        data: values,
+        backgroundColor: ['#4db5ff', '#7af0b2', '#ffd166', '#c3a6ff', '#ff6b6b'],
+        borderColor: 'rgba(255,255,255,0.08)',
+        borderWidth: 2
+      }
+    ]
+  }
 
-  if (state.loading) return <div style={{padding:20}}>Loading…</div>
-  if (!state.ok) return <Navigate to="/login" replace />
-  return children
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      title: { display: true, text: 'Portfolio Allocation' },
+      legend: { position: 'bottom', labels: { color: '#9fb0d0', boxWidth: 14 } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}%` } }
+    }
+  }
+
+  return (
+    <div style={{ height: 320 }}>
+      <Doughnut data={data} options={options} />
+    </div>
+  )
 }

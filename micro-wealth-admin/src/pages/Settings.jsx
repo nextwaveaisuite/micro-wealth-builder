@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout'
 
 const menu = [
   { to: '/', label: 'Overview', end: true },
+  { to: '/providers', label: 'Providers' },
   { to: '/offers', label: 'Offers' },
   { to: '/users', label: 'Users' },
   { to: '/settings', label: 'Settings' }
